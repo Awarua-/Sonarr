@@ -37,7 +37,7 @@ module.exports = function() {
         } else {
             var inputGroup = formGroup.find('.input-group');
 
-            var validationClass = error.isWarning ? 'validation-warning' : '"validation-error';
+            var validationClass = error.isWarning ? 'validation-warning' : 'validation-error';
 
             if (inputGroup.length === 0) {
                 formGroup.append('<span class="help-inline {0}">{1}</span>'.format(validationClass, errorMessage));

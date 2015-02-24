@@ -36,8 +36,9 @@ namespace NzbDrone.Core.Validation
             }
 
             Failures = errors.Concat(warnings).ToList();
-            Errors = errors.ToList();
-            Warnings = warnings.ToList();
+            Errors = errors;
+            errors.ForEach(base.Errors.Add);
+            Warnings = warnings;
         }
 
         public IList<NzbDroneValidationFailure> Failures { get; private set; }
