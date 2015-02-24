@@ -20,7 +20,7 @@ namespace NzbDrone.Core.Download.Clients.Nzbget
             RuleFor(c => c.TvCategory).NotEmpty().When(c => !String.IsNullOrWhiteSpace(c.TvCategoryLocalPath));
             RuleFor(c => c.TvCategoryLocalPath).IsValidPath().When(c => !String.IsNullOrWhiteSpace(c.TvCategoryLocalPath));
 
-            RuleFor(c => c.TvCategory).NotEmpty().WithMessage("Using a separate category for Sonarr is recommended").AsWarning();
+            RuleFor(c => c.TvCategory).NotEmpty().WithMessage("A category is recommended").AsWarning();
         }
     }
 
@@ -49,7 +49,7 @@ namespace NzbDrone.Core.Download.Clients.Nzbget
         [FieldDefinition(3, Label = "Password", Type = FieldType.Password)]
         public String Password { get; set; }
 
-        [FieldDefinition(4, Label = "Category", Type = FieldType.Textbox)]
+        [FieldDefinition(4, Label = "Category", Type = FieldType.Textbox, HelpText = "Adding a category specific to Sonarr avoids conflicts with unrelated downloads, but it's optional")]
         public String TvCategory { get; set; }
 
         // TODO: Remove around January 2015, this setting was superceded by the RemotePathMappingService, but has to remain for a while to properly migrate.
