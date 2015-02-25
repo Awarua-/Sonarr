@@ -9,7 +9,7 @@ namespace NzbDrone.Api.Metadata
         {
         }
 
-        protected override void Validate(MetadataDefinition definition, bool includeWarnings = true)
+        protected override void Validate(MetadataDefinition definition, bool includeWarnings)
         {
             if (!definition.Enable) return;
             base.Validate(definition, includeWarnings);

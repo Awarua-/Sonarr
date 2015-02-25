@@ -9,7 +9,7 @@ namespace NzbDrone.Api.Indexers
         {
         }
 
-        protected override void Validate(IndexerDefinition definition, bool includeWarnings = true)
+        protected override void Validate(IndexerDefinition definition, bool includeWarnings)
         {
             if (!definition.Enable) return;
             base.Validate(definition, includeWarnings);
